@@ -1,8 +1,17 @@
-﻿@{
+﻿@using Forum.Web.Models.Domain
+@model List<TopicModel>
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Welcome to the anonymous forum!</h1>
+    <h2>Choose a topic and start the discussion!</h2>
+    <ul>
+        @foreach (var topic in Model)
+        {
+            <li class="list-group-item mb-3"><a class="topic" href="@Url.Action("Index", "Thread", new { topicId = topic.Id })">@topic.Title</a></li>
+        }
+    </ul>
 </div>

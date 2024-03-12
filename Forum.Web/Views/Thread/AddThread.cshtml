@@ -1,0 +1,26 @@
+﻿@model Forum.Web.Models.ViewModels.CreateThreadViewModel
+@{
+}
+<div class="form-container">
+    <form method="post" asp-action="AddThread">
+        <div class="mb-3">
+            <label for="" class="form-label">Title</label>
+            <input type="text" class="form-control" id="title" asp-for="Title">
+        </div>
+        <div class="mb-3">
+            <label for="" class="form-label">Text</label>
+            <textarea type="text" class="form-control" id="text" asp-for="Text" rows="5"></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="">Topic:</label>
+            <select id="SelectedTopicId" class="form-control" asp-for="SelectedTopicId">
+                <option value="">Choose a Topic</option>
+                @foreach (var topic in ViewBag.TopicList)
+                {
+                    <option value="@topic.Value">@topic.Text</option>
+                }
+            </select>
+        </div>
+        <button type="submit" asp-action="AddThread" class="btn btn-primary">Publish</button>
+    </form>
+</div>

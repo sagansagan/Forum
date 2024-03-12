@@ -1,0 +1,15 @@
+﻿@using Forum.Web.Models.Domain
+@model List<ReplyModel>
+@{
+}
+
+<ul>
+    @foreach (var reply in Model)
+    {
+        <li class="reply">
+            <div class="reply-title">@reply.Title</div>
+            <div class="reply-text">@reply.Text</div>
+            <div class="reply-date">@reply.Created</div>
+        </li>
+    }
+</ul>

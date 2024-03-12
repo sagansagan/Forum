@@ -1,0 +1,18 @@
+﻿@using Forum.Web.Models.ViewModels
+@model ThreadViewModel
+@{
+}
+
+<h2>@Model.Thread.Title</h2>
+<p>@Model.Thread.Text</p>
+
+<h3>Replies</h3>
+
+<div id="replies">
+    @await Html.PartialAsync("_Replies", Model.Replies)
+</div>
+
+<h3>Add Reply:</h3>
+<div id="addReply">
+    @await Html.PartialAsync("_AddReply", new CreateReplyViewModel { ThreadId = Model.Thread.Id })
+</div>

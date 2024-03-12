@@ -33,7 +33,8 @@ namespace Forum.Web.Data
                     new TopicModel { Id = 2, Title = "Food", Description = "Tips and Recipes" },
                     new TopicModel { Id = 3, Title = "Help", Description = "Get help" },
                     new TopicModel { Id = 4, Title = "Nature", Description = "Best sights" },
-                    new TopicModel { Id = 5, Title = "Make-up", Description = "Tips and tricks" });
+                    new TopicModel { Id = 5, Title = "Make-up", Description = "Tips and tricks" },
+                    new TopicModel { Id = 6, Title = "Other", Description = "Open discussion"});
         }
     }
 }

@@ -1,0 +1,16 @@
+﻿@model Forum.Web.Models.ViewModels.CreateReplyViewModel
+@{
+}
+
+<form asp-action="AddReply" asp-controller="Reply">
+    <input type="hidden" name="ThreadId" value="@Model.ThreadId" />
+    <div class="form-group">
+        <label asp-for="Title">Title (optional):</label>
+        <input type="text" name="Title" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Text">Text:</label>
+        <textarea name="Text" class="form-control"></textarea>
+    </div>
+    <button type="submit" asp-action="AddReply" class="btn btn-primary">Submit</button>
+</form>

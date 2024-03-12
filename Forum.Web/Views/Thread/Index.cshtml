@@ -1,0 +1,13 @@
+﻿@using Forum.Web.Models.Domain
+@model List<ThreadModel>
+@{
+
+}
+
+<h2>Threads:</h2>
+<ul>
+    @foreach (var thread in Model)
+    {
+        <li class="list-group-item mb-3"><a href="@Url.Action("Thread", "Thread", new { threadId = thread.Id })">@thread.Title</a></li>
+    }
+</ul>

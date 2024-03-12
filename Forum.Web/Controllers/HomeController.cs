@@ -1,26 +1,24 @@
-﻿using Forum.Web.Models;
+﻿using Forum.Web.Data;
+using Forum.Web.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 
 namespace Forum.Web.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly ForumDbContext forumDbContext;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ForumDbContext forumDbContext)
         {
-            _logger = logger;
+            this.forumDbContext = forumDbContext;
         }
 
         public IActionResult Index()
         {
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
+            var topics = this.forumDbContext.Topics.Include(t => t.Threads).ToList();
+            return View(topics);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
