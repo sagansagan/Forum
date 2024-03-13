@@ -6,7 +6,7 @@ namespace Forum.Web.Models.ViewModels
     public class CreateReplyViewModel
     {
         [AllowNull]
-        public string Title { get; set; }
+        public string? Title { get; set; }
 
         [Required(ErrorMessage = "Content is required")]
         public string Text { get; set; }
